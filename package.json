@@ -1,14 +1,28 @@
 {
-  "name": "smart-link-contact-form",
+  "name": "smart-link-business-solutions",
   "version": "1.0.0",
-  "description": "Backend for Smart Link contact form email delivery",
-  "main": "server.js",
+  "private": true,
+  "description": "SMART LINK Business Solutions LTD - professional business, technology & digital solutions",
   "scripts": {
-    "start": "node server.js"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.19.2",
+    "next": "15.5.20",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
+    "lucide-react": "latest",
     "nodemailer": "^6.9.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^22",
+    "@types/nodemailer": "^6",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "tailwindcss": "^4",
+    "typescript": "^5"
   }
 }
