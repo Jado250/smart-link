@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SMART LINK Business Solutions LTD | Professional Business, Technology &amp; Digital Solutions</title>
+<meta name="description" content="SMART LINK Business Solutions LTD delivers professional technology, accounting, virtual assistance, business support, digital marketing, and creative services for startups, SMEs, NGOs, schools, government institutions, and large organizations." />
+<meta name="keywords" content="business solutions, technology services, accounting, virtual assistant, digital marketing, graphic design, IT services, software development, website development, Rwanda" />
+<meta property="og:title" content="SMART LINK Business Solutions LTD" />
+<meta property="og:description" content="Professional business, technology, and digital solutions under one roof for organizations seeking efficiency, growth, and reliable support." />
+<meta property="og:type" content="website" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230B2C5D'/%3E%3Ccircle cx='32' cy='50' r='10' fill='%23ffffff'/%3E%3Ccircle cx='68' cy='50' r='10' fill='%23ffffff'/%3E%3Crect x='32' y='45' width='36' height='10' fill='%23ffffff'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<style>
+  :root{
+    --navy:#0B2C5D;
+    --navy-deep:#081F42;
+    --blue:#4F77B6;
+    --blue-light:#EEF4FB;
+    --ink:#10192B;
+    --slate:#5B6B85;
+    --mist:#F5F8FC;
+    --paper:#FFFFFF;
+    --line:#E1E9F5;
+  }
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--paper);}
+  h1,h2,h3,.font-display{font-family:'Sora',sans-serif;}
+  .font-mono{font-family:'IBM Plex Mono',monospace;}
+  ::selection{background:var(--blue);color:#fff;}
+  :focus-visible{outline:2px solid var(--blue);outline-offset:3px;}
+
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:.7rem;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--blue);
+    font-weight:500;
+  }
+
+  .nav-shell{
+    background-color: white;
+    border-bottom:1px solid rgba(225,233,245,0);
+    transition:all .35s ease;
+  }
+  .nav-shell.solid{
+    backdrop-filter:blur(14px);
+    background:rgba(255,255,255,.86);
+    border-bottom:1px solid var(--line);
+    box-shadow:0 6px 24px -18px rgba(11,44,93,.25);
+  }
+
+  .card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:1rem;
+    box-shadow:0 1px 2px rgba(11,44,93,.04);
+    transition:transform .35s cubic-bezier(.2,.7,.3,1), box-shadow .35s ease, border-color .35s ease;
+  }
+  .service-panel .card{
+    box-shadow:0 1px 2px rgba(11,44,93,.04), inset 0 0 0 1px rgba(79,119,182,.08);
+  }
+  .card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 24px 40px -22px rgba(11,44,93,.22);
+    border-color:#CBDBF3;
+  }
+
+  .btn-primary{
+    background:var(--navy);
+    color:#fff;
+    transition:background .25s ease, transform .2s ease, box-shadow .25s ease;
+    box-shadow:0 10px 24px -12px rgba(11,44,93,.55);
+  }
+  .btn-primary:hover{background:var(--blue); transform:translateY(-2px);}
+  .btn-secondary{
+    background:#fff;
+    color:var(--navy);
+    border:1.5px solid var(--line);
+    transition:all .25s ease;
+  }
+  .btn-secondary:hover{border-color:var(--blue); color:var(--blue); transform:translateY(-2px);}
+
+  .reveal{opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s cubic-bezier(.2,.7,.3,1);}
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  .float-shape{animation:float 7s ease-in-out infinite;}
+  .float-shape-delay{animation:float 8.5s ease-in-out infinite; animation-delay:.6s;}
+  @keyframes float{
+    0%,100%{transform:translateY(0px);}
+    50%{transform:translateY(-14px);}
+  }
+
+  .pulse-line{stroke-dasharray:6 8; animation:dash 3.4s linear infinite;}
+  @keyframes dash{to{stroke-dashoffset:-140;}}
+
+  .node-glow{animation:glow 3s ease-in-out infinite;}
+  @keyframes glow{
+    0%,100%{opacity:.55;}
+    50%{opacity:1;}
+  }
+
+  .tab-btn{transition:all .25s ease;}
+  .tab-btn.active{background:var(--navy); color:#fff;}
+  .tab-btn:not(.active){background:transparent; color:var(--slate);}
+
+  .service-panel{display:none;}
+  .service-panel.active{display:grid;}
+
+  .service-card{overflow:hidden; text-align:left; width:100%;}
+  .service-card-image{width:100%; height:190px; object-fit:cover; display:block; border-radius:0.9rem;}
+  .service-card-body{display:flex; flex-direction:column; gap:.8rem;}
+  .service-modal-backdrop{position:fixed; inset:0; background:rgba(8,31,66,.8); display:flex; align-items:center; justify-content:center; padding:1.25rem; z-index:120; opacity:0; pointer-events:none; transition:opacity .25s ease;}
+  .service-modal-backdrop.open{opacity:1; pointer-events:auto;}
+  .service-modal{width:min(900px,100%); max-height:90vh; overflow-y:auto; overflow-x:hidden; background:#fff; border-radius:1.5rem; box-shadow:0 24px 60px -28px rgba(8,31,66,.35); transform:translateY(12px); transition:transform .25s ease; position:relative; z-index:121; scrollbar-width:thin; scrollbar-color:var(--blue) var(--blue-light);}
+  .service-modal::-webkit-scrollbar{width:10px;}
+  .service-modal::-webkit-scrollbar-track{background:var(--blue-light);}
+  .service-modal::-webkit-scrollbar-thumb{background:linear-gradient(180deg, var(--blue) 0%, var(--navy) 100%); border-radius:999px; border:2px solid var(--blue-light);}
+  .service-modal-backdrop.open .service-modal{transform:translateY(0);}
+  .service-modal-image{width:100%; height:280px; object-fit:cover; display:block;}
+  .service-modal-close{position:absolute; top:1rem; right:1rem; width:2.5rem; height:2.5rem; border-radius:999px; border:0; background:rgba(255,255,255,.95); color:var(--navy); display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 8px 20px -12px rgba(8,31,66,.35);} 
+
+  @media (prefers-reduced-motion: reduce){
+    .float-shape,.float-shape-delay,.pulse-line,.node-glow{animation:none !important;}
+    .reveal{transition:none;}
+  }
+</style>
+</head>
+<body class="antialiased">
+
+<!-- NAV -->
+<header id="nav" class="nav-shell fixed top-0 inset-x-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="h-20 flex items-center justify-between">
+      <a href="#home" class="flex items-center gap-3 group">
+        <span class="relative w-10 h-10 rounded-xl flex items-center justify-center" style="background:var(--navy);">
+          <span class="absolute w-2.5 h-2.5 rounded-full bg-white left-2 top-1/2 -translate-y-1/2"></span>
+          <span class="absolute w-2.5 h-2.5 rounded-full bg-white right-2 top-1/2 -translate-y-1/2"></span>
+          <span class="absolute h-[3px] w-3.5 bg-white left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"></span>
+        </span>
+        <span class="font-display font-bold text-lg tracking-tight" style="color:var(--navy);">SMART LINK
+          <br>Business Solution
+        </span>
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-9">
+        <a href="#home" class="text-sm font-medium hover:text-[--blue] transition-colors" style="color:var(--ink);">Home</a>
+        <a href="#services" class="text-sm font-medium hover:text-[--blue] transition-colors" style="color:var(--ink);">Services</a>
+        <a href="#about" class="text-sm font-medium hover:text-[--blue] transition-colors" style="color:var(--ink);">About</a>
+        <a href="#why" class="text-sm font-medium hover:text-[--blue] transition-colors" style="color:var(--ink);">Why Choose Us</a>
+        <a href="#contact" class="text-sm font-medium hover:text-[--blue] transition-colors" style="color:var(--ink);">Contact</a>
+      </nav>
+
+      <a href="#contact" class="btn-primary hidden lg:inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold">
+        Get in Touch <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+      </a>
+
+      <button id="menuBtn" class="lg:hidden w-10 h-10 flex items-center justify-center rounded-lg" style="color:var(--navy);" aria-label="Open menu" aria-expanded="false">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobileMenu" class="lg:hidden hidden bg-white border-t" style="border-color:var(--line);">
+    <div class="px-6 py-5 flex flex-col gap-4">
+      <a href="#home" class="text-sm font-medium">Home</a>
+      <a href="#services" class="text-sm font-medium">Services</a>
+      <a href="#about" class="text-sm font-medium">About</a>
+      <a href="#why" class="text-sm font-medium">Why Choose Us</a>
+      <a href="#contact" class="text-sm font-medium">Contact</a>
+      <a href="#contact" class="btn-primary inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full text-sm font-semibold mt-2">Get in Touch</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="home" class="relative pt-40 pb-32 overflow-hidden">
+  <!-- Background image -->
+  <div class="absolute inset-0 -z-10">
+    <img
+      src="bgn.jpg"
+      alt=""
+      class="w-full h-full object-cover"
+    />
+    <!-- Dark overlay -->
+    <div class="absolute inset-0" style="background:linear-gradient(180deg, rgba(8,31,66,.60) 0%, rgba(8,31,66,.50) 45%, rgba(8,31,66,.64) 100%);"></div>
+  </div>
+
+  <div class="max-w-5xl mx-auto px-6 lg:px-10 relative text-center reveal">
+    <span class="eyebrow" style="color:#9DC0F0;">Professional Business, Technology &amp; Digital Solutions</span>
+
+    <h1 class="font-display font-bold leading-[1.08] mt-5 text-4xl sm:text-5xl lg:text-6xl text-white">
+      Transforming Businesses Through Technology, Innovation &amp; Professional Services
+    </h1>
+
+    <p class="mt-6 text-lg leading-relaxed max-w-2xl mx-auto" style="color:#C7D7EF;">
+      SMART LINK Business Solutions LTD helps startups, SMEs, NGOs, schools, government institutions and large organizations improve efficiency through technology, accounting, virtual assistance, business consulting, digital marketing and creative services.
+    </p>
+
+    <div class="mt-10 flex flex-wrap justify-center gap-4">
+      <a href="#contact" class="btn-primary inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-sm font-semibold">
+        Request Consultation <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+      <a href="#services" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-sm font-semibold text-white transition-colors" style="border:1.5px solid rgba(255,255,255,.4);">
+        Explore Services
+      </a>
+    </div>
+
+    <div class="mt-16 flex flex-wrap items-center justify-center gap-6 sm:gap-10">
+      <div class="flex items-center gap-2 text-white"><i data-lucide="badge-check" class="w-4 h-4"></i><span class="text-sm" style="color:#C7D7EF;">Professional Team</span></div>
+      <div class="flex items-center gap-2 text-white"><i data-lucide="wallet" class="w-4 h-4"></i><span class="text-sm" style="color:#C7D7EF;">Affordable Solutions</span></div>
+      <div class="flex items-center gap-2 text-white"><i data-lucide="heart-handshake" class="w-4 h-4"></i><span class="text-sm" style="color:#C7D7EF;">Client Satisfaction</span></div>
+      <div class="flex items-center gap-2 text-white"><i data-lucide="zap" class="w-4 h-4"></i><span class="text-sm" style="color:#C7D7EF;">Fast Support</span></div>
+    </div>
+  </div>
+</section>
+<!-- HERO -->
+
+<section id="intro" class="relative pt-40 pb-28 overflow-hidden" style="background:linear-gradient(180deg,var(--mist) 0%, #ffffff 70%);">
+  <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full float-shape" style="background:radial-gradient(circle,var(--blue-light) 0%, transparent 70%);"></div>
+  <div class="absolute top-40 -left-32 w-80 h-80 rounded-full float-shape-delay" style="background:radial-gradient(circle,var(--blue-light) 0%, transparent 70%);"></div>
+
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 relative grid lg:grid-cols-2 gap-16 items-center">
+    <div class="reveal">
+      <span class="eyebrow">Business &amp; Technology Solutions</span>
+      <h1 class="font-display font-bold leading-[1.08] mt-4 text-4xl sm:text-5xl lg:text-[3.4rem]" style="color:var(--navy);">
+        One company, multiple solutions for lasting business growth
+      </h1>
+      <p class="mt-6 text-lg leading-relaxed max-w-xl" style="color:var(--slate);">
+        SMART LINK offers integrated business services spanning technology, accounting, finance, business support, creative services, digital solutions, and virtual assistance. By combining these capabilities under one team, clients receive practical support, consistent communication, and dependable delivery across every need.
+      </p>
+      <div class="mt-8 grid sm:grid-cols-3 gap-3 text-sm">
+        <div class="rounded-2xl border px-4 py-3" style="border-color:var(--line); background:rgba(255,255,255,.7);">
+          <p class="font-semibold" style="color:var(--navy);">Integrated support</p>
+          <p class="mt-1" style="color:var(--slate);">Technology, finance, and operations aligned in one place.</p>
+        </div>
+        <div class="rounded-2xl border px-4 py-3" style="border-color:var(--line); background:rgba(255,255,255,.7);">
+          <p class="font-semibold" style="color:var(--navy);">Flexible delivery</p>
+          <p class="mt-1" style="color:var(--slate);">Scalable services for startups, SMEs, and institutions.</p>
+        </div>
+        <div class="rounded-2xl border px-4 py-3" style="border-color:var(--line); background:rgba(255,255,255,.7);">
+          <p class="font-semibold" style="color:var(--navy);">Reliable partnership</p>
+          <p class="mt-1" style="color:var(--slate);">A trusted team that stays engaged beyond delivery.</p>
+        </div>
+      </div>
+      <div class="mt-9 flex flex-wrap gap-4">
+        <a href="#contact" class="btn-primary inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-sm font-semibold">
+          Contact Us <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+        <a href="#services" class="btn-secondary inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-sm font-semibold">
+          Our Services
+        </a>
+      </div>
+
+      <div class="mt-14 flex items-center gap-10">
+        <div>
+          <p class="font-display font-bold text-2xl" style="color:var(--navy);">24/7</p>
+          <p class="text-xs mt-1" style="color:var(--slate);">Responsive Support</p>
+        </div>
+        <div class="w-px h-10" style="background:var(--line);"></div>
+        <div>
+          <p class="font-display font-bold text-2xl" style="color:var(--navy);">100%</p>
+          <p class="text-xs mt-1" style="color:var(--slate);">Tailored Solutions</p>
+        </div>
+        <div class="w-px h-10" style="background:var(--line);"></div>
+        <div>
+          <p class="font-display font-bold text-2xl" style="color:var(--navy);">Kigali</p>
+          <p class="text-xs mt-1" style="color:var(--slate);">Based &amp; Growing</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Signature graphic: the "Link" network -->
+    <div class="reveal relative h-[420px] flex items-center justify-center">
+      <svg viewBox="0 0 480 420" class="w-full h-full max-w-lg" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Abstract network of connected nodes representing linked business solutions">
+        <line x1="120" y1="120" x2="240" y2="210" stroke="#CBDBF3" stroke-width="2" class="pulse-line"/>
+        <line x1="240" y1="210" x2="380" y2="130" stroke="#CBDBF3" stroke-width="2" class="pulse-line"/>
+        <line x1="240" y1="210" x2="180" y2="330" stroke="#CBDBF3" stroke-width="2" class="pulse-line"/>
+        <line x1="240" y1="210" x2="360" y2="320" stroke="#CBDBF3" stroke-width="2" class="pulse-line"/>
+        <line x1="120" y1="120" x2="80" y2="260" stroke="#CBDBF3" stroke-width="2" class="pulse-line"/>
+
+        <circle cx="240" cy="210" r="30" fill="var(--navy)" class="node-glow"/>
+        <circle cx="240" cy="210" r="30" fill="none" stroke="var(--navy)" stroke-width="1" opacity=".25"/>
+        <text x="240" y="215" text-anchor="middle" font-family="Sora" font-weight="700" font-size="13" fill="#fff">SL</text>
+
+        <circle cx="120" cy="120" r="20" fill="var(--blue)"/>
+        <foreignObject x="105" y="105" width="30" height="30"><div style="width:30px;height:30px;display:flex;align-items:center;justify-content:center;color:white;" xmlns="http://www.w3.org/1999/xhtml"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg></div></foreignObject>
+
+        <circle cx="380" cy="130" r="22" fill="#fff" stroke="var(--blue)" stroke-width="2"/>
+        <foreignObject x="365" y="115" width="30" height="30"><div style="width:30px;height:30px;display:flex;align-items:center;justify-content:center;color:var(--blue);" xmlns="http://www.w3.org/1999/xhtml"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E5FBF" stroke-width="2"><path d="M3 3v18h18M7 14l4-4 4 4 5-5"/></svg></div></foreignObject>
+
+        <circle cx="180" cy="330" r="24" fill="#fff" stroke="var(--blue)" stroke-width="2"/>
+        <foreignObject x="163" y="313" width="34" height="34"><div style="width:34px;height:34px;display:flex;align-items:center;justify-content:center;color:var(--blue);" xmlns="http://www.w3.org/1999/xhtml"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1E5FBF" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg></div></foreignObject>
+
+        <circle cx="360" cy="320" r="18" fill="var(--navy)" opacity=".85"/>
+        <circle cx="80" cy="260" r="14" fill="var(--blue)" opacity=".7"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="py-28" style="background:var(--paper);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-16 items-center">
+    <div class="reveal order-2 lg:order-1 relative">
+      <div class="card p-10 lg:p-12" style="background:var(--navy);">
+        <p class="font-display text-2xl font-semibold text-white leading-snug">
+          "One roof for technology, finance, and professional business services — built on innovation, integrity, and real client outcomes."
+        </p>
+        <div class="mt-8 grid grid-cols-2 gap-6">
+          <div>
+            <p class="eyebrow" style="color:#9DC0F0;">Focus</p>
+            <p class="text-white text-sm mt-1">Technology &amp; Systems</p>
+          </div>
+          <div>
+            <p class="eyebrow" style="color:#9DC0F0;">Focus</p>
+            <p class="text-white text-sm mt-1">Creative &amp; Marketing</p>
+          </div>
+          <div>
+            <p class="eyebrow" style="color:#9DC0F0;">Focus</p>
+            <p class="text-white text-sm mt-1">Finance &amp; Advisory</p>
+          </div>
+          <div>
+            <p class="eyebrow" style="color:#9DC0F0;">Location</p>
+            <p class="text-white text-sm mt-1">Kigali, Rwanda</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal order-1 lg:order-2">
+      <span class="eyebrow">About Us</span>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl mt-4" style="color:var(--navy);">Built to bring every business need under one roof</h2>
+      <p class="mt-6 leading-relaxed" style="color:var(--slate);">
+        SMART LINK Business Solutions LTD combines technology, finance, and professional business services into a single, dependable partner. Instead of juggling separate vendors, our clients work with one team that understands the full picture — from the systems that run their operations to the numbers that guide their decisions.
+      </p>
+      <p class="mt-4 leading-relaxed" style="color:var(--slate);">
+        We're guided by four commitments in every engagement:
+      </p>
+      <ul class="mt-6 space-y-4">
+        <li class="flex items-start gap-3">
+          <span class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0" style="background:var(--blue-light);"><i data-lucide="lightbulb" class="w-4 h-4" style="color:var(--blue);"></i></span>
+          <span><span class="font-semibold" style="color:var(--navy);">Innovation</span> — <span style="color:var(--slate);">practical solutions that keep clients ahead.</span></span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0" style="background:var(--blue-light);"><i data-lucide="badge-check" class="w-4 h-4" style="color:var(--blue);"></i></span>
+          <span><span class="font-semibold" style="color:var(--navy);">Professionalism</span> — <span style="color:var(--slate);">clear communication, every step of the way.</span></span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0" style="background:var(--blue-light);"><i data-lucide="shield-check" class="w-4 h-4" style="color:var(--blue);"></i></span>
+          <span><span class="font-semibold" style="color:var(--navy);">Integrity</span> — <span style="color:var(--slate);">honest advice, even when it's not the easy answer.</span></span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0" style="background:var(--blue-light);"><i data-lucide="heart-handshake" class="w-4 h-4" style="color:var(--blue);"></i></span>
+          <span><span class="font-semibold" style="color:var(--navy);">Client Satisfaction</span> — <span style="color:var(--slate);">work measured by the results our clients see.</span></span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="py-28" style="background:var(--mist);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="reveal text-center max-w-2xl mx-auto">
+      <span class="eyebrow">What We Do</span>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl mt-4" style="color:var(--navy);">Services across three divisions</h2>
+      <p class="mt-4" style="color:var(--slate);">One partner for the technology, creative, and business expertise your organization needs to grow.</p>
+    </div>
+
+    <div class="reveal flex justify-center mt-10">
+      <div class="inline-flex flex-wrap p-1.5 rounded-full gap-1" style="background:#fff; border:1px solid var(--line);">
+        <button class="tab-btn active px-5 py-2.5 rounded-full text-sm font-semibold" data-tab="all">All</button>
+        <button class="tab-btn px-5 py-2.5 rounded-full text-sm font-semibold" data-tab="technology">Technology</button>
+        <button class="tab-btn px-5 py-2.5 rounded-full text-sm font-semibold" data-tab="business">Business</button>
+        <button class="tab-btn px-5 py-2.5 rounded-full text-sm font-semibold" data-tab="creative">Creative</button>
+      </div>
+    </div>
+
+    <div class="mt-12">
+      <div id="serviceGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section id="why" class="py-28" style="background:var(--paper);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="reveal text-center max-w-2xl mx-auto">
+      <span class="eyebrow">Why Choose Us</span>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl mt-4" style="color:var(--navy);">Reasons clients stay with us</h2>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-14">
+      <div class="reveal flex items-start gap-4 p-6 rounded-2xl" style="background:var(--mist);">
+        <span class="w-11 h-11 rounded-xl flex items-center justify-center shrink-0" style="background:var(--navy);"><i data-lucide="users" class="w-5 h-5 text-white"></i></span>
+        <div><h3 class="font-display font-semibold" style="color:var(--navy);">Professional Experts</h3><p class="text-sm mt-1.5" style="color:var(--slate);">Our team brings specialist knowledge across technology, finance, creative execution, and business operations.</p></div>
+      </div>
+      <div class="reveal flex items-start gap-4 p-6 rounded-2xl" style="background:var(--mist);">
+        <span class="w-11 h-11 rounded-xl flex items-center justify-center shrink-0" style="background:var(--navy);"><i data-lucide="sparkles" class="w-5 h-5 text-white"></i></span>
+        <div><h3 class="font-display font-semibold" style="color:var(--navy);">Certified Specialists</h3><p class="text-sm mt-1.5" style="color:var(--slate);">We combine practical expertise with modern tools to deliver dependable, professional results.</p></div>
+      </div>
+      <div class="reveal flex items-start gap-4 p-6 rounded-2xl" style="background:var(--mist);">
+        <span class="w-11 h-11 rounded-xl flex items-center justify-center shrink-0" style="background:var(--navy);"><i data-lucide="life-buoy" class="w-5 h-5 text-white"></i></span>
+        <div><h3 class="font-display font-semibold" style="color:var(--navy);">Affordable Pricing</h3><p class="text-sm mt-1.5" style="color:var(--slate);">We tailor solutions to fit real budgets without compromising on quality or professionalism.</p></div>
+      </div>
+      <div class="reveal flex items-start gap-4 p-6 rounded-2xl" style="background:var(--mist);">
+        <span class="w-11 h-11 rounded-xl flex items-center justify-center shrink-0" style="background:var(--navy);"><i data-lucide="wallet" class="w-5 h-5 text-white"></i></span>
+        <div><h3 class="font-display font-semibold" style="color:var(--navy);">Reliable Support</h3><p class="text-sm mt-1.5" style="color:var(--slate);">We remain responsive and engaged long after project launch, offering ongoing support when needed.</p></div>
+      </div>
+      <div class="reveal flex items-start gap-4 p-6 rounded-2xl" style="background:var(--mist);">
+        <span class="w-11 h-11 rounded-xl flex items-center justify-center shrink-0" style="background:var(--navy);"><i data-lucide="gem" class="w-5 h-5 text-white"></i></span>
+        <div><h3 class="font-display font-semibold" style="color:var(--navy);">Quality Assurance</h3><p class="text-sm mt-1.5" style="color:var(--slate);">Every engagement is guided by accuracy, consistency, and a strong commitment to excellence.</p></div>
+      </div>
+      <div class="reveal flex items-start gap-4 p-6 rounded-2xl" style="background:var(--mist);">
+        <span class="w-11 h-11 rounded-xl flex items-center justify-center shrink-0" style="background:var(--navy);"><i data-lucide="target" class="w-5 h-5 text-white"></i></span>
+        <div><h3 class="font-display font-semibold" style="color:var(--navy);">Fast Delivery</h3><p class="text-sm mt-1.5" style="color:var(--slate);">We focus on prompt execution, clear communication, and practical outcomes that keep clients moving forward.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="py-28" style="background:var(--mist);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="reveal text-center max-w-2xl mx-auto">
+      <span class="eyebrow">Our Process</span>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl mt-4" style="color:var(--navy);">How an engagement runs, step by step</h2>
+    </div>
+
+    <div class="mt-16 relative">
+      <div class="hidden lg:block absolute top-8 left-[12.5%] right-[12.5%] h-px" style="background:var(--line);"></div>
+      <div class="grid lg:grid-cols-4 gap-10 lg:gap-6">
+        <div class="reveal text-center lg:text-left">
+          <div class="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto lg:mx-0 font-display font-bold text-lg relative z-10" style="background:var(--navy); color:#fff;">01</div>
+          <h3 class="font-display font-semibold mt-5" style="color:var(--navy);">Consultation</h3>
+          <p class="text-sm mt-2" style="color:var(--slate);">Understand client needs.</p>
+        </div>
+        <div class="reveal text-center lg:text-left">
+          <div class="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto lg:mx-0 font-display font-bold text-lg relative z-10" style="background:var(--navy); color:#fff;">02</div>
+          <h3 class="font-display font-semibold mt-5" style="color:var(--navy);">Planning</h3>
+          <p class="text-sm mt-2" style="color:var(--slate);">Develop the right strategy.</p>
+        </div>
+        <div class="reveal text-center lg:text-left">
+          <div class="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto lg:mx-0 font-display font-bold text-lg relative z-10" style="background:var(--navy); color:#fff;">03</div>
+          <h3 class="font-display font-semibold mt-5" style="color:var(--navy);">Implementation</h3>
+          <p class="text-sm mt-2" style="color:var(--slate);">Execute professionally.</p>
+        </div>
+        <div class="reveal text-center lg:text-left">
+          <div class="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto lg:mx-0 font-display font-bold text-lg relative z-10" style="background:var(--navy); color:#fff;">04</div>
+          <h3 class="font-display font-semibold mt-5" style="color:var(--navy);">Support</h3>
+          <p class="text-sm mt-2" style="color:var(--slate);">Provide continuous assistance.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="py-24" style="background:var(--navy);">
+  <div class="max-w-4xl mx-auto px-6 text-center reveal">
+    <h2 class="font-display font-bold text-3xl sm:text-4xl text-white">Ready to Transform Your Business?</h2>
+    <p class="mt-5 text-lg" style="color:#B8CCEA;">Let's talk about where your organization wants to go — and how SMART LINK can help you get there.</p>
+    <a href="#contact" class="mt-9 inline-flex items-center gap-2 px-8 py-4 rounded-full text-sm font-semibold bg-white transition-transform hover:-translate-y-0.5" style="color:var(--navy);">
+      Contact Us Today <i data-lucide="arrow-right" class="w-4 h-4"></i>
+    </a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-28" style="background:var(--paper);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="reveal text-center max-w-2xl mx-auto">
+      <span class="eyebrow">Contact</span>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl mt-4" style="color:var(--navy);">Let’s start the conversation</h2>
+    </div>
+
+    <div class="grid sm:grid-cols-3 gap-6 mt-14 mb-16">
+      <div class="reveal card p-7 text-center">
+        <span class="w-12 h-12 rounded-xl flex items-center justify-center mx-auto" style="background:var(--blue-light);"><i data-lucide="map-pin" class="w-5 h-5" style="color:var(--blue);"></i></span>
+        <h3 class="font-display font-semibold mt-4" style="color:var(--navy);">Location</h3>
+        <p class="text-sm mt-1" style="color:var(--slate);">Kigali – Gasabo, Rwanda</p>
+      </div>
+      <div class="reveal card p-7 text-center">
+        <span class="w-12 h-12 rounded-xl flex items-center justify-center mx-auto" style="background:var(--blue-light);"><i data-lucide="phone" class="w-5 h-5" style="color:var(--blue);"></i></span>
+        <h3 class="font-display font-semibold mt-4" style="color:var(--navy);">Phone</h3>
+        <p class="text-sm mt-1" style="color:var(--slate);">+250 796 687 309</p>
+      </div>
+      <div class="reveal card p-7 text-center">
+        <span class="w-12 h-12 rounded-xl flex items-center justify-center mx-auto" style="background:var(--blue-light);"><i data-lucide="mail" class="w-5 h-5" style="color:var(--blue);"></i></span>
+        <h3 class="font-display font-semibold mt-4" style="color:var(--navy);">Email</h3>
+        <p class="text-sm mt-1 break-all" style="color:var(--slate);">smartlinkbusinesssolution@gmail.com</p>
+      </div>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-8">
+      <div class="reveal card overflow-hidden min-h-[420px]">
+        <div class="w-full h-full min-h-[420px] flex flex-col items-center justify-center gap-3" style="background:var(--mist);">
+          <i data-lucide="map" class="w-8 h-8" style="color:var(--blue);"></i>
+          <p class="text-sm font-medium" style="color:var(--slate);">Map placeholder — Kigali, Gasabo</p>
+          <p class="text-xs" style="color:var(--slate);">Embed a live Google Map here in production</p>
+        </div>
+      </div>
+
+      <form id="contactForm" class="reveal card p-8 space-y-5" novalidate>
+        <div>
+          <label for="name" class="text-sm font-medium" style="color:var(--navy);">Name</label>
+          <input id="name" name="name" type="text" required class="mt-2 w-full rounded-lg px-4 py-3 text-sm outline-none transition-colors" style="border:1px solid var(--line);" placeholder="Your full name" />
+        </div>
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div>
+            <label for="email" class="text-sm font-medium" style="color:var(--navy);">Email</label>
+            <input id="email" name="email" type="email" required class="mt-2 w-full rounded-lg px-4 py-3 text-sm outline-none" style="border:1px solid var(--line);" placeholder="you@company.com" />
+          </div>
+          <div>
+            <label for="phone" class="text-sm font-medium" style="color:var(--navy);">Phone</label>
+            <input id="phone" name="phone" type="tel" class="mt-2 w-full rounded-lg px-4 py-3 text-sm outline-none" style="border:1px solid var(--line);" placeholder="+250 ..." />
+          </div>
+        </div>
+        <div>
+          <label for="service" class="text-sm font-medium" style="color:var(--navy);">Service Needed</label>
+          <select id="service" name="service" class="mt-2 w-full rounded-lg px-4 py-3 text-sm outline-none bg-white" style="border:1px solid var(--line);">
+            <option>Technology Solutions</option>
+            <option>Creative Services</option>
+            <option>Business Services</option>
+            <option>Not Sure Yet</option>
+          </select>
+        </div>
+        <div>
+          <label for="message" class="text-sm font-medium" style="color:var(--navy);">Message</label>
+          <textarea id="message" name="message" rows="4" required class="mt-2 w-full rounded-lg px-4 py-3 text-sm outline-none resize-none" style="border:1px solid var(--line);" placeholder="Tell us about your project..."></textarea>
+        </div>
+        <button type="submit" class="btn-primary w-full py-3.5 rounded-lg text-sm font-semibold inline-flex items-center justify-center gap-2">
+          Send Message <i data-lucide="send" class="w-4 h-4"></i>
+        </button>
+        <p id="formNote" class="text-xs text-center hidden" style="color:var(--blue);">Thanks — we'll be in touch shortly.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:var(--navy-deep);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 py-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+    <div>
+      <div class="flex items-center gap-3">
+        <span class="relative w-9 h-9 rounded-lg flex items-center justify-center" style="background:var(--blue);">
+          <span class="absolute w-2 h-2 rounded-full bg-white left-1.5 top-1/2 -translate-y-1/2"></span>
+          <span class="absolute w-2 h-2 rounded-full bg-white right-1.5 top-1/2 -translate-y-1/2"></span>
+          <span class="absolute h-[2px] w-3 bg-white left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"></span>
+        </span>
+        <span class="font-display font-bold text-white">SMART LINK</span>
+      </div>
+      <p class="text-sm mt-4" style="color:#8DA6CC;">Professional business, technology, and digital solutions under one roof for organizations seeking growth, efficiency, and dependable support.</p>
+    </div>
+    <div>
+      <h4 class="text-white font-semibold text-sm">Quick Links</h4>
+      <div class="mt-4 flex flex-col gap-3 text-sm" style="color:#8DA6CC;">
+        <a href="#home" class="hover:text-white transition-colors">Home</a>
+        <a href="#services" class="hover:text-white transition-colors">Services</a>
+        <a href="#about" class="hover:text-white transition-colors">About</a>
+        <a href="#why" class="hover:text-white transition-colors">Why Choose Us</a>
+      </div>
+    </div>
+    <div>
+      <h4 class="text-white font-semibold text-sm">Contact</h4>
+      <div class="mt-4 flex flex-col gap-3 text-sm" style="color:#8DA6CC;">
+        <span>Kigali – Gasabo, Rwanda</span>
+        <span>+250 796 687 309</span>
+        <span class="break-all">smartlinkbusinesssolution@gmail.com</span>
+      </div>
+    </div>
+    <div>
+      <h4 class="text-white font-semibold text-sm">Services</h4>
+      <div class="mt-4 flex flex-col gap-3">
+        <span class="text-sm" style="color:#8DA6CC;">Technology</span>
+        <span class="text-sm" style="color:#8DA6CC;">Business</span>
+        <span class="text-sm" style="color:#8DA6CC;">Creative</span>
+        <span class="text-sm" style="color:#8DA6CC;">Virtual Assistance</span>
+        <span class="text-sm" style="color:#8DA6CC;">Accounting</span>
+        <span class="text-sm" style="color:#8DA6CC;">Digital Solutions</span>
+      </div>
+    </div>
+  </div>
+  <div class="border-t py-6 text-center text-xs" style="border-color:#12315F; color:#6E88AF;">
+    © 2026 SMART LINK Business Solutions LTD. All Rights Reserved.
+  </div>
+</footer>
+
+<div id="serviceModalBackdrop" class="service-modal-backdrop"  aria-hidden="true">
+  <div class="service-modal" role="dialog" aria-modal="true" aria-labelledby="serviceModalTitle">
+    <button id="serviceModalClose" class="service-modal-close" type="button" aria-label="Close service details">
+      <i data-lucide="x" class="w-4 h-4"></i>
+    </button>
+    <img id="serviceModalImage" class="service-modal-image" src="" alt="">
+    <div class="p-8 lg:p-10">
+      <p class="eyebrow">Service Details</p>
+      <h3 id="serviceModalTitle" class="font-display font-semibold text-2xl mt-3" style="color:var(--navy);"></h3>
+      <p id="serviceModalSummary" class="mt-4 leading-relaxed" style="color:var(--slate);"></p>
+      <div class="mt-8 grid gap-6">
+        <div>
+          <h4 class="font-display font-semibold text-lg" style="color:var(--navy);">Business Benefits</h4>
+          <ul id="serviceModalBenefits" class="mt-4 space-y-3"></ul>
+        </div>
+        <div>
+          <h4 class="font-display font-semibold text-lg" style="color:var(--navy);">Who this is for</h4>
+          <p id="serviceModalAudience" class="mt-3 leading-relaxed" style="color:var(--slate);"></p>
+        </div>
+        <div>
+          <h4 class="font-display font-semibold text-lg" style="color:var(--navy);">Included services</h4>
+          <ul id="serviceModalList" class="mt-4 space-y-3"></ul>
+        </div>
+        <a id="serviceModalCta" href="#contact" class="btn-primary inline-flex items-center gap-2 px-5 py-3 rounded-full text-sm font-semibold w-fit">
+          Request Consultation <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  lucide.createIcons();
+
+  // Nav solid on scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('solid', window.scrollY > 40);
+  });
+
+  // Mobile menu
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', () => {
+    const isOpen = !mobileMenu.classList.contains('hidden');
+    mobileMenu.classList.toggle('hidden');
+    menuBtn.setAttribute('aria-expanded', String(!isOpen));
+    menuBtn.innerHTML = isOpen ? '<i data-lucide="menu" class="w-6 h-6"></i>' : '<i data-lucide="x" class="w-6 h-6"></i>';
+    lucide.createIcons();
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobileMenu.classList.add('hidden');
+    menuBtn.innerHTML = '<i data-lucide="menu" class="w-6 h-6"></i>';
+    lucide.createIcons();
+  }));
+
+  // Reveal on scroll
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => io.observe(el));
+
+  // Services data
+  const serviceCatalog = [
+    {
+      id: 'website-development',
+      title: 'Website Development',
+      category: 'technology',
+      categoryLabel: 'Technology',
+      image: 'images/web development.jpg',
+      shortDescription: 'Professional websites for corporate brands, schools, NGOs, hotels, and growing businesses that need a strong digital presence.',
+      longDescription: 'We design and develop modern websites that reflect your brand clearly, communicate your value, and support business growth. Our approach combines responsive design, SEO-ready structure, secure hosting support, and user-friendly content organization for a polished digital experience.',
+      businessBenefits: ['Strengthens credibility and online visibility', 'Improves lead generation and customer engagement', 'Supports your brand with a professional digital presence'],
+      audience: 'Startups, SMEs, schools, NGOs, hotels, and organizations that need a modern and reliable website.',
+      cta: 'Book a website consultation',
+      subServices: ['Corporate website design', 'Business website development', 'Portfolio websites', 'School websites', 'NGO websites', 'Hotel websites', 'E-commerce websites', 'Landing pages', 'Website maintenance', 'Website redesign', 'Speed optimization', 'Responsive design', 'SEO optimization', 'Domain and hosting support', 'CMS development', 'Admin dashboards', 'Payment integration', 'Booking systems', 'Contact forms', 'Google Maps integration', 'SSL installation', 'Website security', 'Analytics setup']
+    },
+    {
+      id: 'software-development',
+      title: 'Software Development',
+      category: 'technology',
+      categoryLabel: 'Technology',
+      image: 'images/software development.jpg',
+      shortDescription: 'Custom software solutions built to simplify operations, automate processes, and improve team productivity.',
+      longDescription: 'We create custom software systems that match your real workflow rather than forcing your team to adapt to a generic platform. From planning to deployment, our solutions are designed to improve efficiency, reduce manual work, and support long-term business growth.',
+      businessBenefits: ['Automates routine tasks and reduces errors', 'Improves visibility across daily operations', 'Creates a reliable solution tailored to your business'],
+      audience: 'Organizations that need tailored systems for operations, reporting, administration, or service delivery.',
+      cta: 'Discuss your software needs',
+      subServices: ['Custom software development', 'ERP systems', 'POS systems', 'HR systems', 'Payroll systems', 'Hospital systems', 'School systems', 'Hotel management systems', 'Inventory systems', 'CRM systems', 'Financial systems', 'Desktop applications', 'Web applications', 'Cloud applications', 'API development', 'Software maintenance', 'Bug fixes', 'Automation', 'Reports', 'Analytics']
+    },
+    {
+      id: 'system-development',
+      title: 'System Development',
+      category: 'technology',
+      categoryLabel: 'Technology',
+      image: 'images/system development.jpg',
+      shortDescription: 'Reliable business systems designed to centralize data, support decision-making, and streamline operations.',
+      longDescription: 'Our system development services focus on building practical digital infrastructure that connects processes, improves accountability, and supports daily decision-making. We build platforms that are structured, scalable, and easy for teams to use with confidence.',
+      businessBenefits: ['Connects workflows across departments', 'Improves data accuracy and visibility', 'Creates a strong foundation for growth and control'],
+      audience: 'Schools, hospitals, cooperatives, hotels, logistics teams, and enterprises with multiple operational needs.',
+      cta: 'Plan your system solution',
+      subServices: ['Enterprise systems', 'Management systems', 'Business systems', 'School management systems', 'Hospital systems', 'Inventory systems', 'Hotel systems', 'Restaurant systems', 'Cooperative systems', 'SACCO systems', 'Attendance systems', 'Student systems', 'Employee systems', 'Customer systems', 'Asset management', 'Role management', 'Permissions', 'Notifications', 'Reports', 'Dashboards']
+    },
+    {
+      id: 'system-management',
+      title: 'System Management',
+      category: 'technology',
+      categoryLabel: 'Technology',
+      image: 'images/system management.jpg',
+      shortDescription: 'Ongoing system maintenance and support to keep your technology reliable, secure, and efficient.',
+      longDescription: 'We provide proactive system management services that keep your environment stable and dependable. From updates and backups to performance monitoring and technical support, we help businesses protect uptime and avoid unnecessary disruptions.',
+      businessBenefits: ['Reduces downtime and operational risk', 'Keeps systems secure and current', 'Improves user confidence and continuity'],
+      audience: 'Businesses and institutions that depend on stable systems and need dependable technical support.',
+      cta: 'Request managed system support',
+      subServices: ['System maintenance', 'Updates', 'Monitoring', 'Technical support', 'Database management', 'Security', 'Backup', 'Recovery', 'Performance optimization', 'Server management', 'User support', 'Documentation', 'Training', 'Troubleshooting', 'Access control', 'Patch management', 'System audits', 'Issue resolution']
+    },
+    {
+      id: 'internet-of-things',
+      title: 'Internet of Things (IoT)',
+      category: 'technology',
+      categoryLabel: 'Technology',
+      image: 'images/internet of things.jpg',
+      shortDescription: 'Smart connected solutions for agriculture, offices, security, monitoring, and remote operations.',
+      longDescription: 'Our IoT services help organizations connect devices, monitor environments, and automate decision-making using real-time data. Whether for smart agriculture, offices, attendance, or security, these solutions support efficiency, visibility, and smarter control.',
+      businessBenefits: ['Improves operational visibility in real time', 'Supports automation and faster response', 'Reduces manual monitoring and effort'],
+      audience: 'Agribusinesses, offices, schools, security teams, and organizations exploring smart automation and monitoring.',
+      cta: 'Explore IoT solutions',
+      subServices: ['Smart agriculture', 'Smart home systems', 'Smart offices', 'Attendance devices', 'Monitoring systems', 'Smart security', 'Smart sensors', 'Temperature monitoring', 'Water monitoring', 'Gas monitoring', 'Automation', 'Arduino solutions', 'ESP32 development', 'ESP8266 development', 'Raspberry Pi solutions', 'IoT dashboards', 'Remote monitoring', 'Cloud integration', 'Device networking']
+    },
+    {
+      id: 'it-services',
+      title: 'IT Services',
+      category: 'technology',
+      categoryLabel: 'Technology',
+      image: 'images/IT services.jpg',
+      shortDescription: 'Reliable IT support and infrastructure services for day-to-day operations, installations, and technical guidance.',
+      longDescription: 'We provide practical IT support that helps organizations stay productive and secure. From computer maintenance and networking to cybersecurity, cloud support, and consulting, we ensure your technology environment remains dependable and aligned with your goals.',
+      businessBenefits: ['Keeps operations running smoothly', 'Reduces technical delays and downtime', 'Provides expert guidance for better IT decisions'],
+      audience: 'Small and medium businesses, offices, schools, and institutions needing dependable day-to-day IT assistance.',
+      cta: 'Request IT support',
+      subServices: ['Computer maintenance', 'Networking', 'CCTV solutions', 'Biometric systems', 'Servers', 'Cloud computing', 'Technical support', 'Software installation', 'Windows support', 'Linux support', 'Cybersecurity', 'Printer setup', 'Data recovery', 'Email setup', 'IT consulting', 'System troubleshooting', 'Hardware upgrades']
+    },
+    {
+      id: 'graphic-design',
+      title: 'Graphic Design',
+      category: 'creative',
+      categoryLabel: 'Creative',
+      image: 'images/graphic design.jpg',
+      shortDescription: 'Professional visual design for brands, campaigns, events, and communications that need a stronger impression.',
+      longDescription: 'We create visual materials that reflect your brand identity with clarity and consistency. Our design work supports recognition, trust, and engagement across both print and digital channels.',
+      businessBenefits: ['Improves brand recognition and consistency', 'Makes marketing materials more persuasive', 'Helps your business communicate with confidence'],
+      audience: 'Businesses, startups, schools, NGOs, and organizations preparing marketing or brand materials.',
+      cta: 'Request design support',
+      subServices: ['Logo design', 'Brand identity', 'Flyers', 'Posters', 'Brochures', 'Business cards', 'Certificates', 'Books', 'Packaging', 'Banners', 'Roll-up banners', 'Social media posts', 'Presentation design', 'Infographics', 'UI layout support']
+    },
+    {
+      id: 'videography',
+      title: 'Videography',
+      category: 'creative',
+      categoryLabel: 'Creative',
+      image: 'images/videograph.jpg',
+      shortDescription: 'High-quality video production for corporate stories, events, interviews, promotions, and special moments.',
+      longDescription: 'We produce visually compelling videos that communicate your message with clarity and professionalism. From corporate coverage to events and promotional content, our work helps organizations present themselves in a memorable and impactful way.',
+      businessBenefits: ['Creates stronger storytelling and brand connection', 'Supports promotion and audience engagement', 'Delivers polished visual content for multiple channels'],
+      audience: 'Organizations launching campaigns, hosting events, or needing professional video content.',
+      cta: 'Book a video production session',
+      subServices: ['Corporate videos', 'Events coverage', 'Wedding films', 'Drone videos', 'Interviews', 'Training videos', 'Promotional videos', 'Commercials', 'Documentaries', 'Photography', 'Editing', 'Color grading', 'Storyboarding', 'Script support']
+    },
+    {
+      id: 'video-editing',
+      title: 'Video Editing',
+      category: 'creative',
+      categoryLabel: 'Creative',
+      image: 'images/video editing.jpg',
+      shortDescription: 'Polished video editing for YouTube, TikTok, Instagram, corporate content, and promotional campaigns.',
+      longDescription: 'We transform raw footage into professional, audience-ready content with attention to pacing, audio quality, motion, and storytelling. Our editing service helps your message stand out with clarity, consistency, and impact.',
+      businessBenefits: ['Improves viewer engagement and retention', 'Creates professional content quickly and efficiently', 'Strengthens your presence across digital platforms'],
+      audience: 'Content creators, brands, businesses, and organizations sharing stories online.',
+      cta: 'Request video editing support',
+      subServices: ['YouTube editing', 'TikTok content editing', 'Instagram Reels editing', 'Facebook video editing', 'Corporate video editing', 'Motion graphics', 'Color correction', 'Audio cleanup', 'Subtitles', 'Animations', 'Transitions', 'Commercial editing', 'Social media cuts', 'Short-form edits']
+    },
+    {
+      id: 'digital-marketing',
+      title: 'Digital Marketing',
+      category: 'creative',
+      categoryLabel: 'Creative',
+      image: 'images/Digital Marketing.jpg',
+      shortDescription: 'Strategic digital marketing services designed to increase visibility, influence, and qualified leads.',
+      longDescription: 'We create digital marketing strategies that combine content, audience targeting, campaign planning, and measurable execution. Our services help businesses build awareness, attract the right audience, and generate meaningful results through consistent online presence.',
+      businessBenefits: ['Builds brand awareness and audience trust', 'Supports lead generation and campaign growth', 'Improves performance through strategic planning'],
+      audience: 'Businesses, startups, NGOs, and brands aiming to grow visibility and engagement online.',
+      cta: 'Start a digital marketing plan',
+      subServices: ['Facebook marketing', 'Instagram marketing', 'TikTok marketing', 'LinkedIn marketing', 'Google Ads', 'SEO', 'Email marketing', 'Content marketing', 'Social media management', 'Analytics', 'Lead generation', 'Brand awareness', 'Campaign management', 'Audience targeting', 'Performance reporting']
+    },
+    {
+      id: 'virtual-assistance',
+      title: 'Virtual Assistance',
+      category: 'creative',
+      categoryLabel: 'Creative',
+      image: 'images/virtual assistant.jpg',
+      shortDescription: 'Professional virtual assistant support delivered by an ALX Certified Virtual Assistant with an Information Technology background.',
+      longDescription: 'SMART LINK provides dependable virtual assistance for executives, founders, teams, and growing businesses. Our support helps reduce administrative pressure, improve organization, and keep day-to-day operations moving smoothly through professional remote assistance.',
+      businessBenefits: ['Saves time and reduces administrative overload', 'Improves organization and responsiveness', 'Provides flexible support for daily business operations'],
+      audience: 'Founders, executives, small teams, busy professionals, and businesses needing dependable remote support.',
+      cta: 'Hire a virtual assistant',
+      subServices: ['Executive assistance', 'Administrative support', 'Email management', 'Calendar management', 'Appointment scheduling', 'Travel booking', 'Meeting coordination', 'Customer support', 'CRM management', 'Lead generation', 'Research', 'Data entry', 'Spreadsheet management', 'Google Workspace support', 'Microsoft Office support', 'Canva design support', 'Presentation creation', 'Document formatting', 'Reports', 'Proposal writing', 'Internet research', 'Social media assistance', 'Community management', 'Inbox zero support', 'AI productivity support', 'ChatGPT assistance', 'Workflow automation', 'Project coordination', 'Trello management', 'Notion management', 'Asana support', 'ClickUp support', 'Slack coordination', 'Zoom support', 'Microsoft Teams support', 'WordPress updates', 'Website content updates', 'Basic HTML support', 'Basic CSS support', 'Technical documentation', 'CRM updates', 'Database entry', 'Appointment reminders', 'Customer follow-up', 'File organization', 'Cloud storage management', 'Dropbox support', 'Google Drive support', 'OneDrive support', 'Confidential document management', 'Professional communication', 'Time management', 'Business support', 'Remote office support', 'Virtual receptionist', 'Technical virtual assistant', 'Long-term business support']
+    },
+    {
+      id: 'project-management',
+      title: 'Project Management',
+      category: 'business',
+      categoryLabel: 'Business',
+      image: 'images/project management.jpg',
+      shortDescription: 'Professional project coordination, planning, and delivery support for initiatives that need structure and accountability.',
+      longDescription: 'We help organizations lead projects from planning through execution with clear schedules, risk management, and stakeholder communication. Our process supports better delivery outcomes and keeps teams aligned from kickoff to completion.',
+      businessBenefits: ['Improves project accountability and visibility', 'Reduces delays and scope confusion', 'Keeps stakeholders aligned and informed'],
+      audience: 'Businesses, NGOs, institutions, and teams running projects that require careful planning and oversight.',
+      cta: 'Plan your project with us',
+      subServices: ['Planning', 'Scheduling', 'Risk management', 'Budget management', 'Monitoring', 'Reporting', 'Team coordination', 'Agile delivery', 'Scrum support', 'Waterfall planning', 'Documentation', 'Stakeholder management', 'Project tracking', 'Milestone reviews', 'Workflow alignment']
+    },
+    {
+      id: 'auditing-assurance',
+      title: 'Auditing & Assurance',
+      category: 'business',
+      categoryLabel: 'Business',
+      image: 'images/Auditing and Assurance.jpg',
+      shortDescription: 'Independent audit and assurance services that improve transparency, compliance, and stakeholder confidence.',
+      longDescription: 'Our auditing and assurance services provide careful review and professional insight into financial and operational processes. We support organizations in strengthening controls, reducing risk, and building confidence with stakeholders through credible reporting and analysis.',
+      businessBenefits: ['Improves internal control and accountability', 'Strengthens compliance and trust', 'Uncovers risks and opportunities for improvement'],
+      audience: 'Organizations seeking independent review of financial records, controls, and operational processes.',
+      cta: 'Request an assurance review',
+      subServices: ['Internal audit', 'External audit', 'Risk assessment', 'Compliance review', 'Financial audit', 'Operational audit', 'Internal controls', 'Fraud detection', 'Recommendations', 'Audit reports', 'Control testing', 'Process review', 'Policy evaluation', 'Documentation review']
+    },
+    {
+      id: 'accounting',
+      title: 'Accounting',
+      category: 'business',
+      categoryLabel: 'Business',
+      image: 'images/accounting.jpg',
+      shortDescription: 'Professional bookkeeping, reporting, and financial support for better business decisions and smoother operations.',
+      longDescription: 'We offer reliable accounting support that helps organizations stay organized and financially informed. From bookkeeping and financial statements to payroll and budget tracking, our services support accuracy, accountability, and confident decision-making.',
+      businessBenefits: ['Improves financial visibility and control', 'Supports compliance and timely reporting', 'Makes budgeting and planning easier'],
+      audience: 'SMEs, startups, NGOs, educational institutions, and growing businesses needing dependable accounting support.',
+      cta: 'Discuss your accounting needs',
+      subServices: ['Bookkeeping', 'Financial statements', 'Payroll', 'Cash flow management', 'Budgeting', 'Bank reconciliation', 'Inventory accounting', 'Tax preparation', 'Financial analysis', 'QuickBooks support', 'Excel-based reporting', 'Accounting software setup', 'Invoice management', 'Expense tracking']
+    },
+    {
+      id: 'tax-advisory',
+      title: 'Tax Advisory',
+      category: 'business',
+      categoryLabel: 'Business',
+      image: 'images/Tax Advisory.jpg',
+      shortDescription: 'Practical tax planning and advisory support to improve compliance, reduce risk, and strengthen financial efficiency.',
+      longDescription: 'We provide tailored tax advisory services that help organizations stay compliant while making informed decisions about tax obligations and planning. Our guidance supports better preparedness for filing, reporting, and long-term tax efficiency.',
+      businessBenefits: ['Improves compliance and reduces tax-related risks', 'Supports smarter planning and decision-making', 'Helps organizations stay prepared and organized'],
+      audience: 'Businesses, professionals, and organizations needing clarity and support around tax compliance and planning.',
+      cta: 'Book a tax advisory session',
+      subServices: ['Tax registration', 'VAT support', 'PAYE support', 'Corporate tax advisory', 'Tax planning', 'Compliance review', 'Tax returns', 'Consulting', 'Audits', 'Tax reports', 'Planning strategies', 'Filing support', 'Tax documentation', 'Review of obligations']
+    }
+  ];
+
+  const services = {
+    all: serviceCatalog,
+    technology: serviceCatalog.filter(service => service.category === 'technology'),
+    creative: serviceCatalog.filter(service => service.category === 'creative'),
+    business: serviceCatalog.filter(service => service.category === 'business')
+  };
+
+  function cardHTML(service) {
+    return `<div class="service-card card p-0 reveal in">
+      <img src="${service.image}" alt="${service.title}" class="service-card-image" />
+      <div class="p-7 service-card-body">
+        <span class="inline-flex items-center w-fit rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em]" style="background:var(--blue-light); color:var(--blue);">${service.categoryLabel}</span>
+        <h3 class="font-display font-semibold" style="color:var(--navy);">${service.title}</h3>
+        <p class="text-sm leading-relaxed" style="color:var(--slate);">${service.shortDescription}</p>
+        <button type="button" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold w-fit transition-colors" style="background:var(--navy); color:#fff;" data-service-id="${service.id}">
+          Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </button>
+      </div>
+    </div>`;
+  }
+
+  const serviceGrid = document.getElementById('serviceGrid');
+  const serviceModalBackdrop = document.getElementById('serviceModalBackdrop');
+  const serviceModalImage = document.getElementById('serviceModalImage');
+  const serviceModalTitle = document.getElementById('serviceModalTitle');
+  const serviceModalSummary = document.getElementById('serviceModalSummary');
+  const serviceModalBenefits = document.getElementById('serviceModalBenefits');
+  const serviceModalAudience = document.getElementById('serviceModalAudience');
+  const serviceModalList = document.getElementById('serviceModalList');
+  const serviceModalCta = document.getElementById('serviceModalCta');
+  const serviceModalClose = document.getElementById('serviceModalClose');
+
+  function openServiceModal(service) {
+    serviceModalImage.src = service.image;
+    serviceModalImage.alt = service.title;
+    serviceModalTitle.textContent = service.title;
+    serviceModalSummary.textContent = service.longDescription;
+    serviceModalBenefits.innerHTML = service.businessBenefits.map(item => `<li class="flex items-start gap-3 rounded-2xl border px-4 py-3" style="border-color:var(--line);"><span class="w-2.5 h-2.5 mt-2 rounded-full shrink-0" style="background:var(--blue);"></span><span style="color:var(--slate);">${item}</span></li>`).join('');
+    serviceModalAudience.textContent = service.audience;
+    serviceModalList.innerHTML = service.subServices.map(item => `<li class="flex items-start gap-3 rounded-2xl border px-4 py-3" style="border-color:var(--line);"><span class="w-2.5 h-2.5 mt-2 rounded-full shrink-0" style="background:var(--blue);"></span><span style="color:var(--slate);">${item}</span></li>`).join('');
+    serviceModalCta.textContent = service.cta;
+    serviceModalCta.innerHTML = `${service.cta} <i data-lucide="arrow-right" class="w-4 h-4"></i>`;
+    serviceModalBackdrop.classList.add('open');
+    serviceModalBackdrop.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    lucide.createIcons();
+  }
+
+  function closeServiceModal() {
+    serviceModalBackdrop.classList.remove('open');
+    serviceModalBackdrop.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  function renderServices(category) {
+    const items = services[category] || [];
+    serviceGrid.innerHTML = items.map(cardHTML).join('');
+    serviceGrid.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+    lucide.createIcons();
+  }
+
+  renderServices('all');
+
+  serviceGrid.addEventListener('click', (event) => {
+    const trigger = event.target.closest('[data-service-id]');
+    if (!trigger) return;
+    const service = serviceCatalog.find(item => item.id === trigger.dataset.serviceId);
+    if (service) openServiceModal(service);
+  });
+
+  serviceModalClose.addEventListener('click', closeServiceModal);
+  serviceModalBackdrop.addEventListener('click', (event) => {
+    if (event.target === serviceModalBackdrop) closeServiceModal();
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && serviceModalBackdrop.classList.contains('open')) closeServiceModal();
+  });
+
+  // Tabs
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderServices(btn.dataset.tab);
+    });
+  });
+
+  // Contact form
+  const form = document.getElementById('contactForm');
+  const formNote = document.getElementById('formNote');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+    const payload = Object.fromEntries(formData.entries());
+
+    formNote.textContent = 'Sending your message...';
+    formNote.classList.remove('hidden');
+    formNote.style.color = 'var(--blue)';
+
+    try {
+      const response = await fetch('http://localhost:3000/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        formNote.textContent = 'Thanks — we\'ll be in touch shortly.';
+        formNote.style.color = 'var(--blue)';
+        form.reset();
+      } else {
+        formNote.textContent = result.message || 'Unable to send message right now.';
+        formNote.style.color = '#b91c1c';
+      }
+    } catch (error) {
+      formNote.textContent = 'Unable to send message right now. Please try again later.';
+      formNote.style.color = '#b91c1c';
+    }
+  });
+</script>
+</body>
+</html>
